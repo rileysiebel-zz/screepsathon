@@ -2,8 +2,8 @@ var roleArcher = require('role.archer');
 var roleBuilder = require('role.builder');
 var roleClaimer = require('role.claimer');
 var roleHarvester = require('role.harvester');
-var roleHealer= require('role.healer');
-var roleSoldier= require('role.soldier');
+var roleHealer = require('role.healer');
+var roleSoldier = require('role.soldier');
 var roleUpgrader = require('role.upgrader');
 var parameters = require('parameters');
 var util = require('util');
@@ -12,17 +12,20 @@ module.exports.loop = function() {
 
   util.cleanupCreeps();
   var roles = [roleArcher, roleBuilder, roleClaimer, roleHarvester, roleHealer, roleSoldier, roleUpgrader];
-  var numCreeps = Game.creeps.length;
+  var numCreeps = Object.keys(Game.creeps).length;
+  var maxCreeps = 10;
 
-  for (var role of roles) {
-    var desiredNumWithRole = numCreeps * parameters.parameters()[role.name()]
-    var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
-    if (actualNumWithRole < desiredNumWithRole) {
-      var newName = role.name() + Game.time;
-      console.log('Spawning new creep: ' + newName);
-      Game.spawns['Spawn1'].spawnCreep(role.parts(), newName,
-        { memory: { role: role.name() } });
-      break;
+  if (numCreeps <= maxCreeps) {
+    for (var role of roles) {
+      var desiredNumWithRole = maxCreeps * parameters.parameters()[role.name()];
+      var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
+      if (actualNumWithRole < desiredNumWithRole) {
+        var newName = role.name() + Game.time;
+        console.log('Spawning new creep: ' + newName);
+        Game.spawns['Spawn1'].spawnCreep(role.parts(), newName,
+          { memory: { role: role.name() } });
+        break;
+      }
     }
   }
 
@@ -37,29 +40,29 @@ module.exports.loop = function() {
 
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
-    switch(creep.memory.role) {
-        case 'upgrader':
-            roleUpgrader.run(creep);
-            break;
-        case 'builder':
-            roleBuilder.run(creep);
-            break;
-        case 'claimer':
-            roleClaimer.run(creep);
-            break;
-        case 'healer':
-            roleHealer.run(creep);
-            break;
-        case 'soldier':
-            roleSoldier.run(creep);
-            break;
-        case 'archer':
-            roleArcher.run(creep);
-            break;
-        case 'harvester':
-        default:
-            roleHarvester.run(creep);
-            break;
+    switch (creep.memory.role) {
+      case 'upgrader':
+        roleUpgrader.run(creep);
+        break;
+      case 'builder':
+        roleBuilder.run(creep);
+        break;
+      case 'claimer':
+        roleClaimer.run(creep);
+        break;
+      case 'healer':
+        roleHealer.run(creep);
+        break;
+      case 'soldier':
+        roleSoldier.run(creep);
+        break;
+      case 'archer':
+        roleArcher.run(creep);
+        break;
+      case 'harvester':
+      default:
+        roleHarvester.run(creep);
+        break;
     }
   }
 }
