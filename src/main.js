@@ -13,19 +13,22 @@ module.exports.loop = function() {
   util.cleanupCreeps();
   var roles = [roleArcher, roleBuilder, roleClaimer, roleHarvester, roleHealer, roleSoldier, roleUpgrader];
   var numCreeps = Object.keys(Game.creeps).length;
-  var maxCreeps = 10;
 
-  if (numCreeps <= maxCreeps) {
-    for (var role of roles) {
-      var desiredNumWithRole = maxCreeps * parameters.parameters()[role.name()];
-      var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
-      if (actualNumWithRole < desiredNumWithRole) {
-        var newName = role.name() + Game.time;
-        console.log('Spawning new creep: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep(role.parts(), newName,
-          { memory: { role: role.name() } });
-        break;
-      }
+  if (numCreeps == 0) {
+    var newName = harvesterRole.name() + Game.time;
+    console.log('Spawning new creep: ' + newName);
+    Game.spawns['Spawn1'].spawnCreep(harvesterRole.parts(), newName,
+          { memory: { role: harvesterRole.name() } });
+  }
+  for (var role of roles) {
+    var desiredNumWithRole = numCreeps * parameters.parameters()[role.name()];
+    var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
+    if (actualNumWithRole < desiredNumWithRole) {
+      var newName = role.name() + Game.time;
+      console.log('Spawning new creep: ' + newName);
+      Game.spawns['Spawn1'].spawnCreep(role.parts(), newName,
+        { memory: { role: role.name() } });
+      break;
     }
   }
 
