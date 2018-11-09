@@ -22,6 +22,10 @@ var roleHarvester = {
                 }
             }
         }
+    },
+
+    parts: function() {
+      return [WORK, CARRY, MOVE];
     }
 };
 
