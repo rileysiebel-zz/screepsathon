@@ -10,7 +10,7 @@ var roleClaimer = require('role.claimer');
 var roleArcher = require('role.archer');
 var roleSoldier = require('role.soldier');
 var roleHealer = require('role.healer');
-var parameters = require('parameters')
+var parameters = require('parameters');
 var util = require('util');
 
 module.exports.loop = function() {
