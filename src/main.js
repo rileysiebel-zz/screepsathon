@@ -14,7 +14,7 @@ module.exports.loop = function() {
   var roles = [roleArcher, roleBuilder, roleClaimer, roleHarvester, roleHealer, roleSoldier, roleUpgrader];
   var numCreeps = Game.creeps.length;
 
-  for (var role in roles) {
+  for (var role of roles) {
     var desiredNumWithRole = numCreeps * parameters.parameters()[role.name()]
     var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
     if (actualNumWithRole < desiredNumWithRole) {
