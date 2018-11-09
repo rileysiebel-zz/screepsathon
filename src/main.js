@@ -40,16 +40,16 @@ module.exports.loop = function() {
             roleBuilder.run(creep);
             break;
         case 'claimer':
-            roleBuilder.run(creep);
+            roleClaimer.run(creep);
             break;
         case 'healer':
-            roleBuilder.run(creep);
+            roleHealer.run(creep);
             break;
         case 'soldier':
-            roleBuilder.run(creep);
+            roleSoldier.run(creep);
             break;
         case 'archer':
-            roleBuilder.run(creep);
+            roleArcher.run(creep);
             break;
         case 'harvester':
         default:
