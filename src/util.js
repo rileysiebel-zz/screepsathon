@@ -11,7 +11,7 @@ var util = {
 
     },
 
-    multiply: function (a, b) {
+    multiply: function(a, b) {
     var aNumRows = a.length, aNumCols = a[0].length,
         bNumRows = b.length, bNumCols = b[0].length,
         m = new Array(aNumRows);  // initialize array of rows
@@ -27,7 +27,7 @@ var util = {
     return m;
   },
 
-  add: function (a, b) {
+  add: function(a, b) {
   var aNumRows = a.length, aNumCols = a[0].length,
       bNumRows = b.length, bNumCols = b[0].length,
       m = new Array(aNumRows);  // initialize array of rows
@@ -41,7 +41,7 @@ var util = {
   return m;
 },
 
-activate(a){
+activate: function(a) {
     var aNumRows = a.length, aNumCols = a[0].length;
       m = new Array(aNumRows);
       for (var r = 0; r < aNumRows; ++r) {
@@ -54,24 +54,19 @@ activate(a){
        return m;
      },
 
-function softmax(arr) {
+softmax: function(arr) {
          return arr.map(function(value,index) {
            return Math.exp(value) / arr.map( function(y /*value*/){ return Math.exp(y) } ).reduce( function(a,b){ return a+b })
          })
+     },
+
+randomArray: function(length, width) {
+         return Array.apply(null, Array(length)).map(function() {
+             return Array.apply(null, Array(width)).map(function() {
+                 return Math.random();
+             });
+         });
      }
-
-
-
-
-
-  return
-}
-
-
-
-
-
-
 
 };
 
