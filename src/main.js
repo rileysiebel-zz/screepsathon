@@ -32,10 +32,11 @@ module.exports.loop = function() {
   console.log("before:" + inputs.slice(2) + ",total=" + inputs[1] + ",time=" + inputs[0]);
   console.log("after:" + desiredRoleProportion);
 
+
   for (var index in roles) {
     var role = roles[index];
     var desiredNumWithRole = (numCreeps + 1) * desiredRoleProportion[index];
-    var actualNumWithRole = inputs[index + 2];
+    var actualNumWithRole = inputs[parseInt(index) + 2];
     if (actualNumWithRole < desiredNumWithRole) {
       var newName = role.name() + Game.time;
       console.log('Spawning new creep: ' + newName);

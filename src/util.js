@@ -1,11 +1,3 @@
-var roleArcher = require('role.archer');
-var roleBuilder = require('role.builder');
-var roleClaimer = require('role.claimer');
-var roleHarvester = require('role.harvester');
-var roleHealer = require('role.healer');
-var roleSoldier = require('role.soldier');
-var roleUpgrader = require('role.upgrader');
-
 var util = {
 
     cleanupCreeps: function() {
