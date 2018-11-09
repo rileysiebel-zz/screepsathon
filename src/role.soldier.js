@@ -11,6 +11,14 @@ var roleSoldier = {
             }
         }
     }
+
+    parts: function() {
+      return [MOVE, ATTACK];
+    },
+
+    name: function() {
+      return "soldier";
+    }
 };
 
 module.exports = roleSoldier;

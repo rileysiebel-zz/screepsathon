@@ -9,6 +9,14 @@ var roleArcher = {
             }
         }
     }
+
+    parts: function() {
+      return [RANGED_ATTACK, MOVE];
+    },
+
+    name: function() {
+      return "archer";
+    }
 };
 
 module.exports = roleArcher;

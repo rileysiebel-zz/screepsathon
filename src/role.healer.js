@@ -13,6 +13,14 @@ var roleHealer = {
             }
         }
     }
+
+    parts: function() {
+      return [HEAL, MOVE];
+    },
+
+    name: function() {
+      return "healer";
+    }
 };
 
 module.exports = roleHealer;

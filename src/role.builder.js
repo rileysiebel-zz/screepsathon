@@ -27,6 +27,14 @@ var roleBuilder = {
             }
         }
     }
+
+    parts: function() {
+      return [WORK, CARRY, MOVE];
+    },
+
+    name: function() {
+      return "builder";
+    }
 };
 
 module.exports = roleBuilder;

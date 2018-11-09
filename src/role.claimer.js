@@ -8,6 +8,14 @@ var roleClaimer = {
             }
         }
     }
+
+    parts: function() {
+      return [CLAIM, MOVE];
+    },
+
+    name: function() {
+      return "claimer";
+    }
 };
 
 module.exports = roleCalimer;
