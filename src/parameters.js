@@ -30,7 +30,7 @@ var parameters = {
         var a3 = util.activate(z3);
 
 
-        var output = softmax(a3)
+        var output = util.softmax(a3)
 
 
 
