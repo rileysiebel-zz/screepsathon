@@ -15,10 +15,10 @@ module.exports.loop = function() {
   var numCreeps = Object.keys(Game.creeps).length;
 
   if (numCreeps == 0) {
-    var newName = harvesterRole.name() + Game.time;
+    var newName = roleHarvester.name() + Game.time;
     console.log('Spawning new creep: ' + newName);
-    Game.spawns['Spawn1'].spawnCreep(harvesterRole.parts(), newName,
-          { memory: { role: harvesterRole.name() } });
+    Game.spawns['Spawn1'].spawnCreep(roleHarvester.parts(), newName,
+          { memory: { role: roleHarvester.name() } });
   }
   for (var role of roles) {
     var desiredNumWithRole = numCreeps * parameters.parameters()[role.name()];
