@@ -7,6 +7,7 @@ var roleSoldier = require('role.soldier');
 var roleUpgrader = require('role.upgrader');
 var parameters = require('parameters');
 var util = require('util');
+var roomUtil = require('roomUtil');
 
 module.exports.loop = function() {
 
@@ -81,4 +82,11 @@ module.exports.loop = function() {
         break;
     }
   }
+
+  // Create construction site
+  roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x - 2, Game.spawns.Spawn1.pos.y, STRUCTURE_EXTENSION);
+  roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x + 2, Game.spawns.Spawn1.pos.y, STRUCTURE_EXTENSION);
+  roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x, Game.spawns.Spawn1.pos.y - 2, STRUCTURE_EXTENSION);
+  roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x, Game.spawns.Spawn1.pos.y + 2, STRUCTURE_EXTENSION);
+  roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x - 4, Game.spawns.Spawn1.pos, STRUCTURE_EXTENSION);
 }
