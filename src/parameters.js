@@ -7,7 +7,7 @@ var parameters = {
 
     forwardPropagation: function (inputs) {
         var model = {
-          'W1' : util.randomArray(20,10),
+          'W1' : util.randomArray(20,9),
           'b1' : util.randomArray(20,1),
           'W2' : util.randomArray(15,20),
           'b2' : util.randomArray(15,1),
@@ -30,7 +30,7 @@ var parameters = {
 
         //Second linear step
         var z2 = util.add(util.multiply(w2,a1), b2);
-        var a2 = util.activate(z3);
+        var a2 = util.activate(z2);
 
         var z3 = util.add(util.multiply(w3,a2), b3);
         var a3 = util.activate(z3);
