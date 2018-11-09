@@ -26,6 +26,10 @@ var roleHarvester = {
 
     parts: function() {
       return [WORK, CARRY, MOVE];
+    },
+
+    name: function() {
+      return "harvester";
     }
 };
 

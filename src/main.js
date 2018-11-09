@@ -15,10 +15,10 @@ module.exports.loop = function() {
   console.log('Harvesters: ' + harvesters.length);
 
   if (harvesters.length < 2) {
-    var newName = 'Harvester' + Game.time;
+    var newName = roleHarvester.name() + Game.time;
     console.log('Spawning new harvester: ' + newName);
     Game.spawns['Spawn1'].spawnCreep(roleHarvester.parts(), newName,
-      { memory: { role: 'harvester' } });
+      { memory: { role: roleHarvester.name() } });
   }
 
   if (Game.spawns['Spawn1'].spawning) {
