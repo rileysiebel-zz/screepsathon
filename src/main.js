@@ -15,7 +15,7 @@ module.exports.loop = function() {
   var numCreeps = Game.creeps.length;
 
   for (var role in roles) {
-    var desiredNumWithRole = numCreeps * parameters.paramaters()[role.name()]
+    var desiredNumWithRole = numCreeps * parameters.parameters()[role.name()]
     var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
     if (actualNumWithRole < desiredNumWithRole) {
       var newName = role.name() + Game.time;
