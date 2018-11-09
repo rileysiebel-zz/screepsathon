@@ -1,3 +1,5 @@
+var util = require('util');
+
 var roleSoldier = {
 
     /** @param {Creep} creep **/
@@ -9,6 +11,11 @@ var roleSoldier = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
+            else {
+                util.randomMove(creep);
+            }
+        } else {
+            util.randomMove(creep);
         }
     },
 

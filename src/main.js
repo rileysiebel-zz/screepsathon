@@ -88,5 +88,5 @@ module.exports.loop = function() {
   roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x + 2, Game.spawns.Spawn1.pos.y, STRUCTURE_EXTENSION);
   roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x, Game.spawns.Spawn1.pos.y - 2, STRUCTURE_EXTENSION);
   roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x, Game.spawns.Spawn1.pos.y + 2, STRUCTURE_EXTENSION);
-  roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x - 4, Game.spawns.Spawn1.pos, STRUCTURE_EXTENSION);
+  roomUtil.construct(Game.spawns['Spawn1'].room, Game.spawns.Spawn1.pos.x - 2, Game.spawns.Spawn1.pos - 2, STRUCTURE_EXTENSION);
 }

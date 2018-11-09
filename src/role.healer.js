@@ -1,3 +1,5 @@
+var util = require('util');
+
 var roleHealer = {
 
     /** @param {Creep} creep **/
@@ -11,6 +13,8 @@ var roleHealer = {
             if(creep.heal(target) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
             }
+        } else {
+            util.randomMove(creep);
         }
     },
 

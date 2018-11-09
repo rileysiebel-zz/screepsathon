@@ -1,3 +1,5 @@
+var util = require('util');
+
 var roleArcher = {
 
     /** @param {Creep} creep **/
@@ -7,6 +9,8 @@ var roleArcher = {
             if(creep.rangedAttack(target) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
             }
+        } else {
+            util.randomMove(creep);
         }
     },
 
