@@ -18,4 +18,4 @@ var roleClaimer = {
     }
 };
 
-module.exports = roleCalimer;
+module.exports = roleClaimer;
