@@ -13,7 +13,7 @@ var util = {
   spawnBasicCreeps: function(role, number) {
   if (_.filter(Game.creeps, (creep) => creep.memory.role == role.name()) < number) {
     var newName = role.name() + Game.time;
-    console.log('Spawning a ' + role.name() + newName);
+    console.log('Spawning ' + newName);
     Game.spawns['Spawn1'].spawnCreep(role.parts(), newName,
           { memory: { role: role.name() } });
   }

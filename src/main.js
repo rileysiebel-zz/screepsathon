@@ -17,7 +17,7 @@ module.exports.loop = function() {
 
 
   // spawn at least one harvester
-  util.spawnBasicCreeps(roleHarvester, 1);
+  util.spawnBasicCreeps(roleHarvester, 2);
   util.spawnBasicCreeps(roleUpgrader, 1);
   util.spawnBasicCreeps(roleBuilder, 1);
 
@@ -30,14 +30,28 @@ module.exports.loop = function() {
 
   var desiredRoleProportion = parameters.forwardPropagation(inputs);
 
-  console.log("before:" + inputs.slice(2) + ",total=" + inputs[1] + ",time=" + inputs[0]);
-  console.log("after:" + desiredRoleProportion);
+  info = "Actual :";
+  for (var index in roles) {
+      info += (roles[index].name() + "=" + inputs[parseInt(index) + 1] + ",");
+  }
+  info += ("total=" + inputs[0]);
 
+  console.log(info);
+
+  info = "Desired:";
+  for (var index in roles) {
+      info += (roles[index].name() + "=" + Math.ceil((numCreeps + 1) * desiredRoleProportion[index]));
+      if (index < roles.length - 1) {
+          info += ",";
+      }
+  }
+
+  console.log(info);
 
   for (var index in roles) {
     var role = roles[index];
     var desiredNumWithRole = (numCreeps + 1) * desiredRoleProportion[index];
-    var actualNumWithRole = inputs[parseInt(index) + 2];
+    var actualNumWithRole = inputs[parseInt(index) + 1];
     if (actualNumWithRole < desiredNumWithRole) {
       var newName = role.name() + Game.time;
       console.log('Spawning new creep: ' + newName);
