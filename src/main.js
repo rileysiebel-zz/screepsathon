@@ -1,4 +1,9 @@
+var roleArcher = require('role.archer');
+var roleBuilder = require('role.builder');
+var roleClaimer = require('role.claimer');
 var roleHarvester = require('role.harvester');
+var roleHealer= require('role.healer');
+var roleSoldier= require('role.soldier');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleClaimer = require('role.claimer');
@@ -6,15 +11,11 @@ var roleArcher = require('role.archer');
 var roleSoldier = require('role.soldier');
 var roleHealer = require('role.healer');
 var parameters = require('parameters')
+var util = require('util');
 
 module.exports.loop = function() {
 
-  for (var name in Memory.creeps) {
-    if (!Game.creeps[name]) {
-      delete Memory.creeps[name];
-      console.log('Clearing non-existing creep memory:', name);
-    }
-  }
+  util.cleanupCreeps()
 
   var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
   console.log('Harvesters: ' + harvesters.length);
