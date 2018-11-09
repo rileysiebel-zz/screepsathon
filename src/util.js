@@ -1,3 +1,11 @@
+var roleArcher = require('role.archer');
+var roleBuilder = require('role.builder');
+var roleClaimer = require('role.claimer');
+var roleHarvester = require('role.harvester');
+var roleHealer = require('role.healer');
+var roleSoldier = require('role.soldier');
+var roleUpgrader = require('role.upgrader');
+
 var util = {
 
     cleanupCreeps: function() {
@@ -8,8 +16,16 @@ var util = {
           console.log('Clearing non-existing creep memory:', name);
         }
        }
-
     },
+
+    spawnBasicCreeps: function(role, number) {
+    if (_.filter(Game.creeps, (creep) => creep.memory.role == role.name()) < number) {
+      var newName = role.name() + Game.time;
+      console.log('Spawning a ' + role.name() + newName);
+      Game.spawns['Spawn1'].spawnCreep(role.parts(), newName,
+            { memory: { role: role.name() } });
+    }
+  },
 
     multiply: function(a, b) {
     var aNumRows = a.length, aNumCols = a[0].length,

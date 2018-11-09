@@ -14,12 +14,11 @@ module.exports.loop = function() {
   var roles = [roleArcher, roleBuilder, roleClaimer, roleHarvester, roleHealer, roleSoldier, roleUpgrader];
   var numCreeps = _.size(Game.creeps);
 
-  if (numCreeps == 0) {
-    var newName = roleHarvester.name() + Game.time;
-    console.log('Spawning new creep: ' + newName);
-    Game.spawns['Spawn1'].spawnCreep(roleHarvester.parts(), newName,
-          { memory: { role: roleHarvester.name() } });
-  }
+
+  // spawn at least one harvester
+  util.spawnBasicCreeps(roleHarvester, 1);
+  util.spawnBasicCreeps(roleUpgrader, 1);
+  util.spawnBasicCreeps(roleBuilder, 1);
 
   // TODO SOMETHING GOES HERE, NOT JUST COMMENTS
   var inputs = [[Game.time], [numCreeps]];
