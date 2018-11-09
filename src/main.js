@@ -21,6 +21,15 @@ module.exports.loop = function() {
           { memory: { role: roleHarvester.name() } });
   }
 
+  var currentProportions = [] ;
+  for (var role in roles) {
+    var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
+    currentProportions.push(actualNumWithRole / Game.creeps.length);
+  }
+
+  var desiredProportions = parameters.forwardPropagation(currentProportions);
+
+  // TODO SOMETHING GOES HERE, NOT JUST COMMENTS
   var inputs = [Game.time, numCreeps];
   for (var index in roles) {
     var role = roles[index]
