@@ -12,7 +12,7 @@ module.exports.loop = function() {
 
   util.cleanupCreeps();
   var roles = [roleArcher, roleBuilder, roleClaimer, roleHarvester, roleHealer, roleSoldier, roleUpgrader];
-  var numCreeps = Object.keys(Game.creeps).length;
+  var numCreeps = _.size(Game.creeps);
 
   if (numCreeps == 0) {
     var newName = roleHarvester.name() + Game.time;
@@ -30,16 +30,23 @@ module.exports.loop = function() {
   var desiredProportions = parameters.forwardPropagation(currentProportions);
 
   // TODO SOMETHING GOES HERE, NOT JUST COMMENTS
+  var inputs = [Game.time, numCreeps];
 
   for (var role of roles) {
-    var desiredNumWithRole = numCreeps * parameters.parameters()[role.name()];
-    var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
+    inputs.push(_.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length);
+  }
+
+  var desiredRoleProportion = forwardPropogation(inputs);
+
+  for (var index in roles) {
+    var role = roles[index];
+    var desiredNumWithRole = (numCreeps + 1) * desiredRoleProportion[index];
+    var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length
     if (actualNumWithRole < desiredNumWithRole) {
       var newName = role.name() + Game.time;
       console.log('Spawning new creep: ' + newName);
       Game.spawns['Spawn1'].spawnCreep(role.parts(), newName,
         { memory: { role: role.name() } });
-      break;
     }
   }
 
