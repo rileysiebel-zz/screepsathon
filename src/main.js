@@ -22,7 +22,7 @@ module.exports.loop = function() {
   }
 
   var currentProportions = [] ;
-  for (var role in roles) {
+  for (var role of roles) {
     var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
     currentProportions.push(actualNumWithRole / Game.creeps.length);
   }

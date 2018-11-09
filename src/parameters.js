@@ -4,20 +4,16 @@ var util = require('util');
 
 var parameters = {
 
-    model: function() {
-        return [
+
+    forwardPropagation: function (inputs) {
+        var model = {
           'W1' : util.randomArray(20,10),
           'b1' : util.randomArray(20,1),
           'W2' : util.randomArray(15,20),
           'b2' : util.randomArray(15,1),
           'W3' : util.randomArray(7,15),
           'b3' : util.randomArray(7,1)
-    },
-
-
-
-    forwardPropagation: function (inputs) {
-        var model = model()
+        }
         //
         //Load parameters from model:
         var w1 = model['W1'],
