@@ -1,14 +1,18 @@
 
 
+var util = require('util');
 
 var parameters = {
-
-    parameters: function() {
-        return [1/7, 1/7, 1/7, 1/7, 1/7, 1/7, 1/7]
-    },
-
-    forwardPropagation: function (inputs, model) {
+    forwardPropagation: function (inputs) {
         //Make one vector of inputs:
+        var model = {
+          'W1': 0.5,
+          'b1': 0.2,
+          'W2': 12,
+          'b2': 9,
+          'W3': 0.5,
+          'b3': 12
+        }
 
         //Load parameters from model:
         var w1 = model['W1'],
@@ -29,14 +33,10 @@ var parameters = {
         var z3 = util.add(util.multiply(a2,w3), b3);
         var a3 = util.activate(z3);
 
-
         var output = util.softmax(a3)
 
-
-
         return output;
-
-        }
+}
 
 
 

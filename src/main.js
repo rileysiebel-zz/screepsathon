@@ -22,11 +22,12 @@ module.exports.loop = function() {
   }
 
   var inputs = [Game.time, numCreeps];
-  for (var role of roles) {
-    inputs.push(_.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length);
+  for (var index in roles) {
+    var role = roles[index]
+    inputs[index + 1] = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
   }
 
-  var desiredRoleProportion = forwardPropogation(inputs);
+  var desiredRoleProportion = parameters.forwardPropagation(inputs);
 
   for (var index in roles) {
     var role = roles[index];
