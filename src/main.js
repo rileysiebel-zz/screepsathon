@@ -20,15 +20,15 @@ module.exports.loop = function() {
     Game.spawns['Spawn1'].spawnCreep(roleHarvester.parts(), newName,
           { memory: { role: roleHarvester.name() } });
   }
+
   for (var role of roles) {
-    var desiredNumWithRole = numCreeps * parameters.parameters()[role.name()];
+    var desiredNumWithRole = (numCreeps + 1) * parameters.parameters()[role.name()];
     var actualNumWithRole = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
     if (actualNumWithRole < desiredNumWithRole) {
       var newName = role.name() + Game.time;
       console.log('Spawning new creep: ' + newName);
       Game.spawns['Spawn1'].spawnCreep(role.parts(), newName,
         { memory: { role: role.name() } });
-      break;
     }
   }
 
