@@ -7,7 +7,7 @@ var parameters = {
 
     forwardPropagation: function (inputs) {
         var model = {
-          'W1' : util.randomArray(20,9),
+          'W1' : util.randomArray(20,8),
           'b1' : util.randomArray(20,1),
           'W2' : util.randomArray(15,20),
           'b2' : util.randomArray(15,1),

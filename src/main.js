@@ -21,7 +21,7 @@ module.exports.loop = function() {
   util.spawnBasicCreeps(roleBuilder, 1);
 
   // TODO SOMETHING GOES HERE, NOT JUST COMMENTS
-  var inputs = [[Game.time], [numCreeps]];
+  var inputs = [[numCreeps]];
   for (var index in roles) {
     var role = roles[index];
     inputs.push([_.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length]);
