@@ -30,10 +30,10 @@ module.exports.loop = function() {
   var desiredProportions = parameters.forwardPropagation(currentProportions);
 
   // TODO SOMETHING GOES HERE, NOT JUST COMMENTS
-  var inputs = [Game.time, numCreeps];
+  var inputs = [[Game.time], [numCreeps]];
   for (var index in roles) {
     var role = roles[index]
-    inputs[index + 1] = _.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length;
+    inputs[index + 1] = [_.filter(Game.creeps, (creep) => creep.memory.role == role.name()).length];
   }
 
   var desiredRoleProportion = parameters.forwardPropagation(inputs);
