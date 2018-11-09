@@ -57,19 +57,6 @@ var util = {
   return m;
 },
 
-activate: function(a) {
-    var aNumRows = a.length, aNumCols = a[0].length;
-      m = new Array(aNumRows);
-      for (var r = 0; r < aNumRows; ++r) {
-        m[r] = new Array(aNumCols); // initialize the current row
-        for (var c = 0; c < aNumCols; ++c) {
-          m[r][c] = a[r][c] + b[r][c];             // initialize the current cell
-
-        }
-      }
-      return m;
-    },
-
     activate: function(a){
       var aNumRows = a.length, aNumCols = a[0].length;
         m = new Array(aNumRows);
@@ -91,7 +78,7 @@ softmax: function(arr) {
 randomArray: function(length, width) {
          return Array.apply(null, Array(length)).map(function() {
              return Array.apply(null, Array(width)).map(function() {
-                 return Math.random();
+                 return Math.random() - 1/2;
              });
          });
      }
