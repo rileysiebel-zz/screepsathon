@@ -8,7 +8,7 @@ var roleArcher = {
                 creep.moveTo(target);
             }
         }
-    }
+    },
 
     parts: function() {
       return [RANGED_ATTACK, MOVE];

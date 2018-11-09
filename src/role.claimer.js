@@ -7,7 +7,7 @@ var roleClaimer = {
                 creep.moveTo(creep.room.controller);
             }
         }
-    }
+    },
 
     parts: function() {
       return [CLAIM, MOVE];
