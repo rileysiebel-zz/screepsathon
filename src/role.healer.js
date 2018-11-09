@@ -12,7 +12,7 @@ var roleHealer = {
                 creep.moveTo(target);
             }
         }
-    }
+    },
 
     parts: function() {
       return [HEAL, MOVE];

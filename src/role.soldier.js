@@ -10,7 +10,7 @@ var roleSoldier = {
                 }
             }
         }
-    }
+    },
 
     parts: function() {
       return [MOVE, ATTACK];

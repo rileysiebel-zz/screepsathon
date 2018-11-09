@@ -26,7 +26,7 @@ var roleBuilder = {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
-    }
+    },
 
     parts: function() {
       return [WORK, CARRY, MOVE];
