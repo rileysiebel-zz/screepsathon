@@ -6,6 +6,7 @@ var parameters = {
 
 
     forwardPropagation: function (inputs) {
+        //!StartHere
         var model = {
           'W1' : util.randomArray(20,8),
           'b1' : util.randomArray(20,1),
@@ -14,7 +15,7 @@ var parameters = {
           'W3' : util.randomArray(7,15),
           'b3' : util.randomArray(7,1)
         }
-        //
+        //!EndHere
         //Load parameters from model:
         var w1 = model['W1'],
             b1 = model['b1'],
